@@ -5,8 +5,6 @@ import java.util.List;
 import java.util.Map;
 
 public class Course {
-    private List<AssignmentObserver> observers;
-    private Map<String, Assignment> assignments;
 
     public void addNewAssignemnt(String name, LocalDate dueDate) {
 
