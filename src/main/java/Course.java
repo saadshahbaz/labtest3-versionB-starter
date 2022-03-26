@@ -1,10 +1,9 @@
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class Course {
+
+    private Map<String, Assignment> assignments;
 
     public void addNewAssignemnt(String name, LocalDate dueDate) {
 
@@ -14,7 +13,12 @@ public class Course {
 
     }
 
-    public void addObserver(AssignmentObserver observer){
+    public void addObserver(AssignmentObserver observer) {
 
+    }
+
+    public Map<String, Assignment> getAssignments() {
+        // for simplicity, don't worry about leaking refereces here:)
+        return assignments;
     }
 }
