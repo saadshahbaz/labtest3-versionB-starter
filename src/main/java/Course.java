@@ -5,7 +5,7 @@ public class Course {
 
     private Map<String, Assignment> assignments;
 
-    public void addNewAssignemnt(String name, LocalDate dueDate) {
+    public void addNewAssignment(String name, LocalDate dueDate) {
 
     }
 

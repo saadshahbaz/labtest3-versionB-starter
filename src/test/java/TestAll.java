@@ -20,7 +20,7 @@ public class TestAll {
     @Test
     void test_add_assignment() {
         c.addObserver(alice);
-        c.addNewAssignemnt("A1", LocalDate.of(2022, 3, 1));
+        c.addNewAssignment("A1", LocalDate.of(2022, 3, 1));
 
         assertEquals(1, alice.getAssignmentsToWorkOn().size());
         assertEquals(LocalDate.of(2022, 3, 1), c.getAssignments().get("A1").getDueDate());
@@ -29,7 +29,7 @@ public class TestAll {
     @Test
     void test_change_due_date() {
         c.addObserver(alice);
-        c.addNewAssignemnt("A1", LocalDate.of(2022, 3, 1));
+        c.addNewAssignment("A1", LocalDate.of(2022, 3, 1));
         c.changeDueDate("A1", LocalDate.of(2022, 3, 5));
 
         assertEquals(LocalDate.of(2022, 3, 5), alice.getAssignmentsToWorkOn().peek().getDueDate());
@@ -39,8 +39,8 @@ public class TestAll {
     @Test
     void test_work_on_assignment() {
         c.addObserver(alice);
-        c.addNewAssignemnt("A2", LocalDate.of(2022, 3, 1));
-        c.addNewAssignemnt("A1", LocalDate.of(2022, 2, 1));
+        c.addNewAssignment("A2", LocalDate.of(2022, 3, 1));
+        c.addNewAssignment("A1", LocalDate.of(2022, 2, 1));
 
         alice.doAnAssignment();
 
@@ -53,7 +53,7 @@ public class TestAll {
     void test_multiple_students() {
         c.addObserver(alice);
         c.addObserver(bob);
-        c.addNewAssignemnt("A1", LocalDate.of(2022, 3, 1));
+        c.addNewAssignment("A1", LocalDate.of(2022, 3, 1));
         bob.doAnAssignment();
         assertEquals(1, alice.getAssignmentsToWorkOn().size());
         assertEquals(0, bob.getAssignmentsToWorkOn().size());
@@ -62,7 +62,7 @@ public class TestAll {
     @Test
     void test_multiple_students_2() {
         c.addObserver(alice);
-        c.addNewAssignemnt("A1", LocalDate.of(2022, 3, 1));
+        c.addNewAssignment("A1", LocalDate.of(2022, 3, 1));
         c.addObserver(bob);
         assertEquals(1, alice.getAssignmentsToWorkOn().size());
         assertEquals(0, bob.getAssignmentsToWorkOn().size());
