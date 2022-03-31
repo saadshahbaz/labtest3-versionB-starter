@@ -21,17 +21,28 @@ public class TestAll {
     void test_add_assignment() {
         c.addObserver(alice);
         c.addNewAssignment("A1", LocalDate.of(2022, 3, 1));
-
         assertEquals(1, alice.getAssignmentsToWorkOn().size());
         assertEquals(LocalDate.of(2022, 3, 1), c.getAssignments().get("A1").getDueDate());
     }
+
+    @Test
+    void test_remove_assignment() {
+        c.addObserver(alice);
+        c.addNewAssignment("A1", LocalDate.of(2022, 3, 1));
+        c.addNewAssignment("Quiz 1", LocalDate.of(2022, 2, 1));
+        c.cancelAssignment("Quiz 1");
+        assertEquals(1, alice.getAssignmentsToWorkOn().size());
+        assertEquals(1, c.getAssignments().size());
+        assertEquals(LocalDate.of(2022, 3, 1), c.getAssignments().get("A1").getDueDate());
+
+    }
+
 
     @Test
     void test_change_due_date() {
         c.addObserver(alice);
         c.addNewAssignment("A1", LocalDate.of(2022, 3, 1));
         c.changeDueDate("A1", LocalDate.of(2022, 3, 5));
-
         assertEquals(LocalDate.of(2022, 3, 5), alice.getAssignmentsToWorkOn().peek().getDueDate());
         assertEquals(LocalDate.of(2022, 3, 5), c.getAssignments().get("A1").getDueDate());
     }

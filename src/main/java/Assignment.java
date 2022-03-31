@@ -1,7 +1,7 @@
 import java.time.LocalDate;
 
 public class Assignment implements Comparable<Assignment> {
-    private String name;
+    private final String name;
     private LocalDate dueDate;
 
     public Assignment(String name, LocalDate dueDate) {

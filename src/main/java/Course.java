@@ -9,7 +9,12 @@ public class Course {
 
     }
 
+
     public void changeDueDate(String name, LocalDate newDueDate) {
+
+    }
+
+    public void cancelAssignment(String name){
 
     }
 
