@@ -19,7 +19,7 @@ public class TestAll {
 
     @Test
     void test_add_assignment() {
-        c.addObserver(alice);
+        c.enrollStudent(alice);
         c.addNewAssignment("A1", LocalDate.of(2022, 3, 1));
         assertEquals(1, alice.getAssignmentsToWorkOn().size());
         assertEquals(LocalDate.of(2022, 3, 1), c.getAssignments().get("A1").getDueDate());
@@ -27,7 +27,7 @@ public class TestAll {
 
     @Test
     void test_remove_assignment() {
-        c.addObserver(alice);
+        c.enrollStudent(alice);
         c.addNewAssignment("A1", LocalDate.of(2022, 3, 1));
         c.addNewAssignment("Quiz 1", LocalDate.of(2022, 2, 1));
         c.cancelAssignment("Quiz 1");
@@ -40,7 +40,7 @@ public class TestAll {
 
     @Test
     void test_change_due_date() {
-        c.addObserver(alice);
+        c.enrollStudent(alice);
         c.addNewAssignment("A1", LocalDate.of(2022, 3, 1));
         c.changeDueDate("A1", LocalDate.of(2022, 3, 5));
         assertEquals(LocalDate.of(2022, 3, 5), alice.getAssignmentsToWorkOn().peek().getDueDate());
@@ -49,7 +49,7 @@ public class TestAll {
 
     @Test
     void test_work_on_assignment() {
-        c.addObserver(alice);
+        c.enrollStudent(alice);
         c.addNewAssignment("A2", LocalDate.of(2022, 3, 1));
         c.addNewAssignment("A1", LocalDate.of(2022, 2, 1));
 
@@ -62,8 +62,8 @@ public class TestAll {
 
     @Test
     void test_multiple_students() {
-        c.addObserver(alice);
-        c.addObserver(bob);
+        c.enrollStudent(alice);
+        c.enrollStudent(bob);
         c.addNewAssignment("A1", LocalDate.of(2022, 3, 1));
         bob.doAnAssignment();
         assertEquals(1, alice.getAssignmentsToWorkOn().size());
@@ -72,9 +72,9 @@ public class TestAll {
 
     @Test
     void test_multiple_students_2() {
-        c.addObserver(alice);
+        c.enrollStudent(alice);
         c.addNewAssignment("A1", LocalDate.of(2022, 3, 1));
-        c.addObserver(bob);
+        c.enrollStudent(bob);
         assertEquals(1, alice.getAssignmentsToWorkOn().size());
         assertEquals(0, bob.getAssignmentsToWorkOn().size());
     }

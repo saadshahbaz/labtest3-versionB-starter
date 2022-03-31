@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Student implements AssignmentObserver {
+public class Student{
 
     private String name;
     private Queue<Assignment> assignmentsToWorkOn;
@@ -19,3 +19,5 @@ public class Student implements AssignmentObserver {
     }
 
 }
+
+

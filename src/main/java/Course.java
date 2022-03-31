@@ -18,7 +18,7 @@ public class Course {
 
     }
 
-    public void addObserver(AssignmentObserver observer) {
+    public void enrollStudent(Student s) {
 
     }
 
